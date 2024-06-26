@@ -1,42 +1,21 @@
-function sum(a, b) {
-    return a + b;
-}
+function rpnCalculator(num1, num2, operator) {
 
-function subtract(a, b) {
-    return a - b;
-}
-
-function multiply(a, b) {
-    return a * b;
-}
-
-function divide(a, b) {
-    if (b === 0) {
-        throw new Error("Division par zéro");
+    if (typeof num1 !== 'number' || typeof num2 !== 'number') {
+        throw new Error('num1 and num2 must be numbers');
     }
-    return a / b;
-}
 
-function modulus(a, b) {
-    return a % b;
-}
-
-function power(a, b) {
-    return Math.pow(a, b);
-}
-
-function squareRoot(a) {
-    if (a < 0) {
-        throw new Error("Racine carrée d'un nombre négatif");
+    switch(operator) {
+        case '+':
+            return num1 + num2;
+        case '-':
+            return num1 - num2;
+        case '*':
+            return num1 * num2;
+        default:
+            throw new Error('Invalid operator');
     }
-    return Math.sqrt(a);
-}
-
-function absolute(a) {
-    return Math.abs(a);
 }
 
 
 
-
-module.exports = { sum, subtract, multiply };
+module.exports = { rpnCalculator };
